@@ -23,21 +23,31 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0.0,
           ),
-          body: new Container(
-            child: Column(
-              children: [
+          body: SingleChildScrollView(
+            child: Stack(
+              children: <Widget>[
                 new Container(
-                  height: 400,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 1)),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  margin: EdgeInsets.symmetric(horizontal: 50, vertical: 25),
-                  child: MyCustomForm(),
-                ),
-                new Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  margin: EdgeInsets.symmetric(horizontal: 50, vertical: 25),
-                  child: MyNotes(),
+                  child: Column(
+                    children: [
+                      new Container(
+                        height: 400,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+                        child: MyCustomForm(),
+                      ),
+                      new Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+                        child: MyNotes(),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -188,9 +198,52 @@ class MyNotesState extends State<MyNotes> {
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
     return Card(
+      elevation: 0.0,
       child: Column(
         children: <Widget>[
-          Text("test"),
+          Text(
+            "MES NOTES SAUVEGARDÉES",
+            style: TextStyle(
+                color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+            child: Row(
+              children: <Widget>[
+                Text(
+                  "COURS PHILO #33",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 4, 0, 12),
+            child: Row(
+              children: <Widget>[
+                Text(
+                  "07 - 07 - 2021",
+                  style: TextStyle(
+                    color: Colors.black26,
+                    fontSize: 13,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Text(
+            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.",
+            style: TextStyle(
+              color: Colors.black54,
+              fontSize: 14,
+            ),
+          ),
+          Image.asset('assets/image/backflutter.jpg'),
         ],
       ),
     );
